@@ -9,17 +9,17 @@ issues and pull requests. Please read them closely.
 Foremost, be so kind as to [`search`](#use-the-search-luke). This ensures any
 contribution you would make is not already covered.
 
--   [`Issues`](#reporting-issues)
-    -   [`You have a problem`](#you-have-a-problem)
-    -   [`You have a suggestion`](#you-have-a-suggestion)
--   [`Pull Requests`](#submitting-pull-requests)
-    -   [`Getting started`](#getting-started)
-    -   [`You have a solution`](#you-have-a-solution)
-    -   [`New Theme`](#new-theme)
-    -   [`New Plugin`](#new-plugin)
-    -   [`Copyright and responsibility`](#copyright-and-responsibility)
-    -   [`Improving PR`](#improving-pr)
--   [`Information sources (_aka_ search)](#use-the-search-luke)
+- [`Issues`](#reporting-issues)
+    - [`You have a problem`](#you-have-a-problem)
+    - [`You have a suggestion`](#you-have-a-suggestion)
+- [`Pull Requests`](#submitting-pull-requests)
+    - [`Getting started`](#getting-started)
+    - [`You have a solution`](#you-have-a-solution)
+    - [`New Theme`](#new-theme)
+    - [`New Plugin`](#new-plugin)
+    - [`Copyright and responsibility`](#copyright-and-responsibility)
+    - [`Improving PR`](#improving-pr)
+- [`Information sources (_aka_ search)](#use-the-search-luke)
 
 **BONUS:** [`Volunteering`](#you-have-spare-time-to-volunteer)
 
@@ -73,16 +73,16 @@ Before starting to work on it, please be so kind as to
 [`search`](#use-the-search-luke) for any open issues, and any
 pending/merged/rejected PRs covering or related to what you are going to change.
 
--   If you try to solve a [`problem`](#you-have-a-problem) and a solution to the
-    problem is already reported, try it out and +1 the pull request if the
-    solution works OK. On the other hand, if you think your solution is better,
-    post it with a reference to the other one so we can have both solutions to
-    compare.
--   If you find an existing PR that is related, try it out and work with the
-    author on a common solution.
--   If not, then go ahead and submit a PR. Please copy to anyone relevant (e.g.
-    plugin maintainers) by mentioning their GitHub handle (starting with `@`) in
-    your message.
+- If you try to solve a [`problem`](#you-have-a-problem) and a solution to the
+  problem is already reported, try it out and +1 the pull request if the
+  solution works OK. On the other hand, if you think your solution is better,
+  post it with a reference to the other one so we can have both solutions to
+  compare.
+- If you find an existing PR that is related, try it out and work with the
+  author on a common solution.
+- If not, then go ahead and submit a PR. Please copy to anyone relevant (e.g.
+  plugin maintainers) by mentioning their GitHub handle (starting with `@`) in
+  your message.
 
 You should be familiar with the basics of
 [`contributing on GitHub`](https://help.github.com/articles/using-pull-requests)

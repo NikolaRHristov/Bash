@@ -6,10 +6,10 @@ The _Nwinkler Random Color_ Theme is based on the
 [`nwinkler theme`](HTTPS://GitHub.Com/Bash-it/bash-it/wiki/Themes#nwinkler), but
 it randomizes the colors for:
 
--   time
--   username
--   hostname
--   path
+- time
+- username
+- hostname
+- path
 
 The random colors are chosen the first time this theme is used and saved to the
 `~/.nwinkler_random_colors` file. So, the next time you connect to the same

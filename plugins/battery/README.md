@@ -9,31 +9,31 @@ functions to monitor and display battery status and information.
 
 ### 1. `ac_adapter_connected`
 
--   **Description:** Checks if the AC adapter is currently connected.
--   **Returns:**
-    -   `0` if the adapter is connected.
-    -   Non-zero exit status otherwise.
+- **Description:** Checks if the AC adapter is currently connected.
+- **Returns:**
+    - `0` if the adapter is connected.
+    - Non-zero exit status otherwise.
 
 ### 2. `ac_adapter_disconnected`
 
--   **Description:** Checks if the AC adapter is currently disconnected.
--   **Returns:**
-    -   `0` if the adapter is disconnected.
-    -   Non-zero exit status otherwise.
+- **Description:** Checks if the AC adapter is currently disconnected.
+- **Returns:**
+    - `0` if the adapter is disconnected.
+    - Non-zero exit status otherwise.
 
 ### 3. `battery_percentage`
 
--   **Description:** Retrieves and displays the current battery charge as a
-    percentage of full (100%).
--   **Standard Output:**
-    -   Battery percentage as an integer.
+- **Description:** Retrieves and displays the current battery charge as a
+  percentage of full (100%).
+- **Standard Output:**
+    - Battery percentage as an integer.
 
 ### 4. `battery_charge`
 
--   **Description:** Presents a graphical representation of the battery charge
-    using ASCII characters.
--   **Stanard Output:**
-    -   Graphical representation of the battery charge.
+- **Description:** Presents a graphical representation of the battery charge
+  using ASCII characters.
+- **Stanard Output:**
+    - Graphical representation of the battery charge.
 
 ## 🛠️ Usage
 
@@ -58,12 +58,11 @@ have to be solved by you_
 
 This plugin relies on several utilities for retrieving battery information:
 
--   `upower`: Primary tool for battery information retrieval.
--   `acpi`, `pmset`, `ioreg`, `WMIC`: Fallback options for battery information
-    retrieval.
--   `/sys/class/power_supply/`: Fallback option for battery information
-    retrieval.
+- `upower`: Primary tool for battery information retrieval.
+- `acpi`, `pmset`, `ioreg`, `WMIC`: Fallback options for battery information
+  retrieval.
+- `/sys/class/power_supply/`: Fallback option for battery information retrieval.
 
 This plugin file also depends on the following module in Oh My Bash:
 
--   `lib/utils.sh`
+- `lib/utils.sh`

@@ -7,8 +7,8 @@ The colours were set using some experimentation and consulting an xterm 256
 colour chart like [`this`](HTTPS://GitHub.Com/gawin/bash-colors-256)
 
 **IMPORTANT:** This theme requires that
-[`a font with the Powerline symbols`](HTTPS://GitHub.Com/powerline/fonts) needs to
-be used in your terminal emulator, otherwise the prompt won't be displayed
+[`a font with the Powerline symbols`](HTTPS://GitHub.Com/powerline/fonts) needs
+to be used in your terminal emulator, otherwise the prompt won't be displayed
 correctly, i.e. some of the additional icons and characters will be missing.
 Please follow your operating system's instructions to install one of the fonts
 from the above link and select it in your terminal emulator.
@@ -22,20 +22,20 @@ themes.
 
 ## Provided Information
 
--   Current path
--   Current username and hostname
--   Current time
--   An indicator when connected by SSH
--   An indicator when `sudo` has the credentials cached (see the `sudo` manpage
-    for more info about this)
--   An indicator when the current shell is inside the Vim editor
--   Battery charging status (depends on the
-    [`../../plugins/battery/battery.plugin.sh`](battery plugin))
--   SCM Repository status (e.g. Git, SVN)
--   The current Python environment (Virtualenv, venv, and Conda are supported)
-    in use
--   The current Ruby environment (rvm and rbenv are supported) in use
--   Last command exit code (only shown when the exit code is greater than 0)
+- Current path
+- Current username and hostname
+- Current time
+- An indicator when connected by SSH
+- An indicator when `sudo` has the credentials cached (see the `sudo` manpage
+  for more info about this)
+- An indicator when the current shell is inside the Vim editor
+- Battery charging status (depends on the
+  [`../../plugins/battery/battery.plugin.sh`](battery plugin))
+- SCM Repository status (e.g. Git, SVN)
+- The current Python environment (Virtualenv, venv, and Conda are supported) in
+  use
+- The current Ruby environment (rvm and rbenv are supported) in use
+- Last command exit code (only shown when the exit code is greater than 0)
 
 ## Configuration
 
@@ -67,14 +67,14 @@ change the format.
 The contents of the prompt can be "reordered", all the "segments" (every piece
 of information) can take any place. The currently available segments are:
 
--   battery
--   clock
--   cwd
--   in_vim
--   python_venv
--   ruby
--   scm
--   user_info
+- battery
+- clock
+- cwd
+- in_vim
+- python_venv
+- ruby
+- scm
+- user_info
 
 A variables can be defined to set the order of the prompt segments:
 

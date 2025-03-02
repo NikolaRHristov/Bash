@@ -20,9 +20,9 @@ more often.
 
 **Disclaimer:** _Oh My Bash works best on macOS and Linux._
 
--   Unix-like operating system (macOS or Linux)
--   `curl` or `wget` should be installed
--   `git` should be installed
+- Unix-like operating system (macOS or Linux)
+- `curl` or `wget` should be installed
+- `git` should be installed
 
 ### Basic Installation
 
@@ -64,9 +64,10 @@ fi
 
 Oh My Bash comes with a shit load of plugins to take advantage of. You can take
 a look in the
-[`plugins`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/tree/master/plugins) directory
-and/or the [`wiki`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/wiki/Plugins) to see
-what's currently available.
+[`plugins`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/tree/master/plugins)
+directory and/or the
+[`wiki`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/wiki/Plugins) to see what's
+currently available.
 
 #### Enabling Plugins
 
@@ -102,9 +103,9 @@ documents how to use them.
 
 We'll admit it. Early in the Oh My Bash world, we may have gotten a bit too
 theme happy. We have over one hundred themes now bundled. Most of them have
-[`screenshots`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/wiki/Themes) on our wiki or
-alternatively [`oh-my-zsh`](HTTPS://GitHub.Com/robbyrussell/oh-my-zsh/wiki/themes)
-wiki.
+[`screenshots`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/wiki/Themes) on our wiki
+or alternatively
+[`oh-my-zsh`](HTTPS://GitHub.Com/robbyrussell/oh-my-zsh/wiki/themes) wiki.
 
 #### Selecting a Theme
 
@@ -244,10 +245,10 @@ configuration.
 
 If you have any hiccups installing, here are a few common fixes.
 
--   You _might_ need to modify your `PATH` in `~/.bashrc` if you're not able to
-    find some commands after switching to `oh-my-bash`.
--   If you installed manually or changed the install location, check the `OSH`
-    environment variable in `~/.bashrc`.
+- You _might_ need to modify your `PATH` in `~/.bashrc` if you're not able to
+  find some commands after switching to `oh-my-bash`.
+- If you installed manually or changed the install location, check the `OSH`
+  environment variable in `~/.bashrc`.
 
 ### Customization of Plugins and Themes
 
@@ -351,8 +352,8 @@ configuration easier to maintain (and faster), don't hesitate to fork and send
 pull requests!
 
 We also need people to test out pull-requests. So take a look through
-[`the open issues`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/issues) and help where
-you can.
+[`the open issues`](HTTPS://GitHub.Com/ohmybash/oh-my-bash/issues) and help
+where you can.
 
 ## Contributors
 

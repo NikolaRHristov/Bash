@@ -13,12 +13,11 @@ You can find the original source of this script
 
 ## Variables
 
--   `PROMPT_CHAR` (optional): This variable is shared with powerline.
--   `OMB_PLUGIN_XTERM_SHORT_TERM_LINE` (optional): Controls whether to shorten
-    the directory name in the title.
--   `OMB_PLUGIN_XTERM_SHORT_USER` (optional): Overrides the default user name.
--   `OMB_PLUGIN_XTERM_SHORT_HOSTNAME` (optional): Overrides the default
-    hostname.
+- `PROMPT_CHAR` (optional): This variable is shared with powerline.
+- `OMB_PLUGIN_XTERM_SHORT_TERM_LINE` (optional): Controls whether to shorten the
+  directory name in the title.
+- `OMB_PLUGIN_XTERM_SHORT_USER` (optional): Overrides the default user name.
+- `OMB_PLUGIN_XTERM_SHORT_HOSTNAME` (optional): Overrides the default hostname.
 
 ## Functions
 
@@ -29,7 +28,7 @@ You can find the original source of this script
 
 1. **Enable plugin:**
 
--   Add the plugin name `xterm` in the `plugins` array in `~/.bashrc`.
+- Add the plugin name `xterm` in the `plugins` array in `~/.bashrc`.
 
 ```shell
 # bashrc
@@ -39,7 +38,7 @@ plugins=(... xterm)
 
 2. **Customization:**
 
--   Modify the variables and functions as needed to fit your preferences.
+- Modify the variables and functions as needed to fit your preferences.
 
 The xterm title will be automatically updated based on your commands and
 directory changes.

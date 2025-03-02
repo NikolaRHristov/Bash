@@ -7,22 +7,22 @@ based on Brainy theme).
 
 ### Prompt Segments
 
--   Username & Hostname
--   Current Directory
--   SCM Information
--   Battery Charge
--   Clock
--   Command duration
--   [`Todo.txt`](HTTPS://GitHub.Com/ginatrapani/todo.txt-cli) status
--   Ruby Environment
--   Python Environment
--   Exit Code
+- Username & Hostname
+- Current Directory
+- SCM Information
+- Battery Charge
+- Clock
+- Command duration
+- [`Todo.txt`](HTTPS://GitHub.Com/ginatrapani/todo.txt-cli) status
+- Ruby Environment
+- Python Environment
+- Exit Code
 
 ### Others
 
--   Indicator for cached `sudo` credential
--   Indicator for ssh login
--   `pb10k` command for showing/hiding various prompt segments on-the-fly
+- Indicator for cached `sudo` credential
+- Indicator for ssh login
+- `pb10k` command for showing/hiding various prompt segments on-the-fly
 
 ## Configuration
 
@@ -113,17 +113,17 @@ Exit code of the last command:
 
 Currently available prompt segments are:
 
--   battery
--   char
--   clock
--   cmd_duration
--   dir
--   exitcode
--   python
--   ruby
--   scm
--   todo
--   user_info
+- battery
+- char
+- clock
+- cmd_duration
+- dir
+- exitcode
+- python
+- ruby
+- scm
+- todo
+- user_info
 
 Three environment variables can be defined to rearrange the segments order. The
 default values are:

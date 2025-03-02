@@ -13,7 +13,7 @@ Bash. The function handles printing of the progress bar.
 
 1. **Enable plugin:**
 
--   Add the plugin name `progress` in the `plugins` array in `~/.bashrc`.
+- Add the plugin name `progress` in the `plugins` array in `~/.bashrc`.
 
 ```shell
 # bashrc

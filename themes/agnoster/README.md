@@ -21,12 +21,12 @@ powerlevel9k on zsh), but it's pretty problematic in Bash. The general pattern
 is to write out the right prompt, hit \r, then write the left. This is
 problematic for the following reasons:
 
--   Doesn't properly resize dynamically when you resize the terminal
--   Changes to the prompt (like clearing and re-typing, super common) deletes
-    the prompt
--   Getting the right alignment via columns / tput cols is pretty problematic
-    (and is a bug in this version)
--   Bash prompt escapes (like \h or \w) don't get interpolated
+- Doesn't properly resize dynamically when you resize the terminal
+- Changes to the prompt (like clearing and re-typing, super common) deletes the
+  prompt
+- Getting the right alignment via columns / tput cols is pretty problematic (and
+  is a bug in this version)
+- Bash prompt escapes (like \h or \w) don't get interpolated
 
 all in all, if you really, really want right-side prompts without a ton of work,
 recommend going to zsh for now. If you know how to fix this, would appreciate
@@ -35,8 +35,8 @@ it!
 ![`ScreenShot`](agnoster-bash-sshot.png)
 
 The direct upstream of the theme is
-[`agnoster-bash`](HTTPS://GitHub.Com/speedenator/agnoster-bash). The current base
-is
+[`agnoster-bash`](HTTPS://GitHub.Com/speedenator/agnoster-bash). The current
+base is
 [`1165d1b3`](HTTPS://GitHub.Com/speedenator/agnoster-bash/commit/1165d1b3f125f52e7d4df953166d3c62774638fc).
 New updates in the upstream can be found
 [`here`](HTTPS://GitHub.Com/speedenator/agnoster-bash/compare/1165d1b3f125f52e7d4df953166d3c62774638fc...master).

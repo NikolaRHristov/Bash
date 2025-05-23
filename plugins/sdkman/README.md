@@ -10,7 +10,7 @@ Let's [`install the sdkman`](https://sdkman.io/install) without updating shell
 config!
 
 ```bash
-$ curl -s "HTTPS://get.sdkman.io?rcupdate=false" | bash
+$ curl -s "https://get.sdkman.io?rcupdate=false" | bash
 ```
 
 ### Include sdkman as plugin

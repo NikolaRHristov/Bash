@@ -1,7 +1,7 @@
 # ab+simple theme
 
 This theme needs a Powerline-patched font to be rendered correctly. The original
-author of the theme recommends HTTPS://github.com/adi1090x/termux-style
+author of the theme recommends https://github.com/adi1090x/termux-style
 
 This is a colorful theme based on the agnoster theme, made shorter and simpler.
 

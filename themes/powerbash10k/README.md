@@ -13,7 +13,7 @@ based on Brainy theme).
 - Battery Charge
 - Clock
 - Command duration
-- [`Todo.txt`](HTTPS://GitHub.Com/ginatrapani/todo.txt-cli) status
+- [`Todo.txt`](https://GitHub.Com/ginatrapani/todo.txt-cli) status
 - Ruby Environment
 - Python Environment
 - Exit Code
@@ -83,7 +83,7 @@ Python environment version information:
 
 #### ToDo.txt status
 
-[`Todo.txt`](HTTPS://GitHub.Com/ginatrapani/todo.txt-cli) status:
+[`Todo.txt`](https://GitHub.Com/ginatrapani/todo.txt-cli) status:
 
 `THEME_SHOW_TODO=false`
 

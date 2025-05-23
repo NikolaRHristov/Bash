@@ -4,10 +4,10 @@ A Powerline-derived theme for light backgrounds aiming to balance bling and
 utility. Created by [`Imran Chaudhry`](https://imranchaudhry.com/) / April 2023.
 
 The colours were set using some experimentation and consulting an xterm 256
-colour chart like [`this`](HTTPS://GitHub.Com/gawin/bash-colors-256)
+colour chart like [`this`](https://GitHub.Com/gawin/bash-colors-256)
 
 **IMPORTANT:** This theme requires that
-[`a font with the Powerline symbols`](HTTPS://GitHub.Com/powerline/fonts) needs
+[`a font with the Powerline symbols`](https://GitHub.Com/powerline/fonts) needs
 to be used in your terminal emulator, otherwise the prompt won't be displayed
 correctly, i.e. some of the additional icons and characters will be missing.
 Please follow your operating system's instructions to install one of the fonts

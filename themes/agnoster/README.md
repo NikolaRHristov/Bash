@@ -2,10 +2,10 @@
 
 In order for this theme to render correctly, you will need a
 [`Powerline-patched font`](https://gist.github.com/1595572). I recommend:
-HTTPS://github.com/powerline/fonts.git
+https://github.com/powerline/fonts.git
 
 ```
-git clone HTTPS://github.com/powerline/fonts.git fonts
+git clone https://github.com/powerline/fonts.git fonts
 cd fonts
 sh install.sh
 ```
@@ -35,8 +35,8 @@ it!
 ![`ScreenShot`](agnoster-bash-sshot.png)
 
 The direct upstream of the theme is
-[`agnoster-bash`](HTTPS://GitHub.Com/speedenator/agnoster-bash). The current
+[`agnoster-bash`](https://GitHub.Com/speedenator/agnoster-bash). The current
 base is
-[`1165d1b3`](HTTPS://GitHub.Com/speedenator/agnoster-bash/commit/1165d1b3f125f52e7d4df953166d3c62774638fc).
+[`1165d1b3`](https://GitHub.Com/speedenator/agnoster-bash/commit/1165d1b3f125f52e7d4df953166d3c62774638fc).
 New updates in the upstream can be found
-[`here`](HTTPS://GitHub.Com/speedenator/agnoster-bash/compare/1165d1b3f125f52e7d4df953166d3c62774638fc...master).
+[`here`](https://GitHub.Com/speedenator/agnoster-bash/compare/1165d1b3f125f52e7d4df953166d3c62774638fc...master).

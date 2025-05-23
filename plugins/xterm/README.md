@@ -9,7 +9,7 @@ directory, and command being executed.
 ## Source
 
 You can find the original source of this script
-[`here`](HTTPS://GitHub.Com/Bash-it/bash-it/blob/bf2034d13d/plugins/available/xterm.plugin.bash).
+[`here`](https://GitHub.Com/Bash-it/bash-it/blob/bf2034d13d/plugins/available/xterm.plugin.bash).
 
 ## Variables
 

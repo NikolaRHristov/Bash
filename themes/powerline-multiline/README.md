@@ -5,7 +5,7 @@ shell session (divided into two parts, left and right), and the second one is
 where the shell commands are introduced.
 
 **IMPORTANT:** This theme requires that
-[`a font with the Powerline symbols`](HTTPS://GitHub.Com/powerline/fonts) needs
+[`a font with the Powerline symbols`](https://GitHub.Com/powerline/fonts) needs
 to be used in your terminal emulator, otherwise the prompt won't be displayed
 correctly, i.e. some of the additional icons and characters will be missing.
 Please follow your operating system's instructions to install one of the fonts

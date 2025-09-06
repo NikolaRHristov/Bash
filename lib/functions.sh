@@ -1,42 +1,42 @@
 #! bash oh-my-bash.module
 function bash_stats() {
-	fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
+    fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
 }
 
 function uninstall_oh_my_bash() {
-	source "$OSH"/tools/uninstall.sh
+    source "$OSH"/tools/uninstall.sh
 }
 
 function upgrade_oh_my_bash() {
-	source "$OSH"/tools/upgrade.sh
+    source "$OSH"/tools/upgrade.sh
 }
 
 function take() {
-	mkdir -p "$1"
-	cd "$1" || exit
+    mkdir -p "$1"
+    cd "$1" || exit
 }
 
 function open_command() {
-	local open_cmd
+    local open_cmd
 
-	# define the open command
-	case "$OSTYPE" in
-	darwin*) open_cmd='open' ;;
-	cygwin*) open_cmd='cygstart' ;;
-	linux*) open_cmd='xdg-open' ;;
-	msys*) open_cmd='start ""' ;;
-	*)
-		echo "Platform $OSTYPE not supported"
-		return 1
-		;;
-	esac
+    # define the open command
+    case "$OSTYPE" in
+    darwin*) open_cmd='open' ;;
+    cygwin*) open_cmd='cygstart' ;;
+    linux*) open_cmd='xdg-open' ;;
+    msys*) open_cmd='start ""' ;;
+    *)
+        echo "Platform $OSTYPE not supported"
+        return 1
+        ;;
+    esac
 
-	# don't use nohup on OSX
-	if [[ "$OSTYPE" == darwin* ]]; then
-		$open_cmd "$@" &>/dev/null
-	else
-		nohup $open_cmd "$@" &>/dev/null
-	fi
+    # don't use nohup on OSX
+    if [[ "$OSTYPE" == darwin* ]]; then
+        $open_cmd "$@" &>/dev/null
+    else
+        nohup $open_cmd "$@" &>/dev/null
+    fi
 }
 
 #
@@ -51,14 +51,14 @@ function open_command() {
 #    1 if it does not exist
 #
 if ((_omb_bash_version >= 40000)); then
-	function alias_value() {
-		[[ ${BASH_ALIASES[$1]+set} ]] && echo "${BASH_ALIASES[$1]}"
-	}
+    function alias_value() {
+        [[ ${BASH_ALIASES[$1]+set} ]] && echo "${BASH_ALIASES[$1]}"
+    }
 else
-	function alias_value() {
-		local value=
-		value=$(alias "$1" 2>/dev/null) && eval "value=${value#*=}" && echo "$value"
-	}
+    function alias_value() {
+        local value=
+        value=$(alias "$1" 2>/dev/null) && eval "value=${value#*=}" && echo "$value"
+    }
 fi
 
 #
@@ -73,7 +73,7 @@ fi
 #    Always 0
 #
 function try_alias_value() {
-	alias_value "$1" || echo "$1"
+    alias_value "$1" || echo "$1"
 }
 
 #
@@ -86,8 +86,8 @@ function try_alias_value() {
 #    0 if the variable exists, 3 if it was set
 #
 function default() {
-	typeset -p "$1" &>/dev/null && return 0
-	typeset -g "$1"="$2" && return 3
+    typeset -p "$1" &>/dev/null && return 0
+    typeset -g "$1"="$2" && return 3
 }
 
 #
@@ -100,6 +100,6 @@ function default() {
 #    0 if the env variable exists, 3 if it was set
 #
 function env_default() {
-	env | grep -q "^$1=" && return 0
-	export "$1=$2" && return 3
+    env | grep -q "^$1=" && return 0
+    export "$1=$2" && return 3
 }

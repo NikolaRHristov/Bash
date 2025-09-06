@@ -35,8 +35,8 @@
 #   mcd:   Makes new Dir and jumps inside
 #   --------------------------------------------------------------------
 function mcd {
-	mkdir -p -- "$*"
-	cd -- "$*" || exit
+    mkdir -p -- "$*"
+    cd -- "$*" || exit
 }
 
 #   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
@@ -52,7 +52,7 @@ function showa { /usr/bin/grep --color=always -i -a1 "$@" ~/Library/init/bash/al
 #   quiet: mute output of a command
 #   ------------------------------------------------------------
 function quiet {
-	"$@" &> /dev/null &
+    "$@" &>/dev/null &
 }
 
 #   lsgrep: search through directory contents with grep
@@ -63,20 +63,20 @@ function lsgrep { ls | grep "$*"; }
 #   banish-cookies: redirect .adobe and .macromedia files to /dev/null
 #   ------------------------------------------------------------
 function banish-cookies {
-	rm -r ~/.macromedia ~/.adobe
-	ln -s /dev/null ~/.adobe
-	ln -s /dev/null ~/.macromedia
+    rm -r ~/.macromedia ~/.adobe
+    ln -s /dev/null ~/.adobe
+    ln -s /dev/null ~/.macromedia
 }
 
 #   show the n most used commands. defaults to 10
 #   ------------------------------------------------------------
 function hstats {
-	if [[ $# -lt 1 ]]; then
-		NUM=10
-	else
-		NUM=${1}
-	fi
-	history | awk '{print $2}' | sort | uniq -c | sort -rn | head -"$NUM"
+    if [[ $# -lt 1 ]]; then
+        NUM=10
+    else
+        NUM=${1}
+    fi
+    history | awk '{print $2}' | sort | uniq -c | sort -rn | head -"$NUM"
 }
 
 #   -------------------------------
@@ -88,72 +88,72 @@ function zipf { zip -r "$1".zip "$1"; } # zipf:         To create a ZIP archive 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
 function extract {
-	if [ -f "$1" ]; then
-		case "$1" in
-			*.tar.bz2) tar xjf "$1" ;;
-			*.tar.gz) tar xzf "$1" ;;
-			*.bz2) bunzip2 "$1" ;;
-			*.rar) unrar e "$1" ;;
-			*.gz) gunzip "$1" ;;
-			*.tar) tar xf "$1" ;;
-			*.tbz2) tar xjf "$1" ;;
-			*.tgz) tar xzf "$1" ;;
-			*.zip) unzip "$1" ;;
-			*.Z) uncompress "$1" ;;
-			*.7z) 7z x "$1" ;;
-			*) echo "'$1' cannot be extracted via extract()" ;;
-		esac
-	else
-		echo "'$1' is not a valid file"
-	fi
+    if [ -f "$1" ]; then
+        case "$1" in
+        *.tar.bz2) tar xjf "$1" ;;
+        *.tar.gz) tar xzf "$1" ;;
+        *.bz2) bunzip2 "$1" ;;
+        *.rar) unrar e "$1" ;;
+        *.gz) gunzip "$1" ;;
+        *.tar) tar xf "$1" ;;
+        *.tbz2) tar xjf "$1" ;;
+        *.tgz) tar xzf "$1" ;;
+        *.zip) unzip "$1" ;;
+        *.Z) uncompress "$1" ;;
+        *.7z) 7z x "$1" ;;
+        *) echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }
 
 #   buf:  back up file with timestamp
 #   ---------------------------------------------------------
 function buf {
-	local filename filetime
-	filename=$1
-	filetime=$(date +%Y%m%d_%H%M%S)
-	cp -a "${filename}" "${filename}_${filetime}"
+    local filename filetime
+    filename=$1
+    filetime=$(date +%Y%m%d_%H%M%S)
+    cp -a "${filename}" "${filename}_${filetime}"
 }
 
 #   del:  move files to hidden folder in tmp, that gets cleared on each reboot
 #   ---------------------------------------------------------
 function del {
-	mkdir -p /tmp/.trash && mv "$@" /tmp/.trash
+    mkdir -p /tmp/.trash && mv "$@" /tmp/.trash
 }
 
 #   mkiso:  creates iso from current dir in the parent dir (unless defined)
 #   ---------------------------------------------------------
 function mkiso {
-	if _omb_util_command_exists mkisofs; then
-		if [ -z ${1+x} ]; then
-			local isoname=${PWD##*/}
-		else
-			local isoname=$1
-		fi
+    if _omb_util_command_exists mkisofs; then
+        if [ -z ${1+x} ]; then
+            local isoname=${PWD##*/}
+        else
+            local isoname=$1
+        fi
 
-		if [ -z ${2+x} ]; then
-			local destpath=../
-		else
-			local destpath=$2
-		fi
+        if [ -z ${2+x} ]; then
+            local destpath=../
+        else
+            local destpath=$2
+        fi
 
-		if [ -z ${3+x} ]; then
-			local srcpath=${PWD}
-		else
-			local srcpath=$3
-		fi
+        if [ -z ${3+x} ]; then
+            local srcpath=${PWD}
+        else
+            local srcpath=$3
+        fi
 
-		if [ ! -f "${destpath}${isoname}.iso" ]; then
-			echo "writing ${isoname}.iso to ${destpath} from ${srcpath}"
-			mkisofs -V "${isoname}" -iso-level 3 -r -o "${destpath}${isoname}.iso" "${srcpath}"
-		else
-			echo "${destpath}${isoname}.iso already exists"
-		fi
-	else
-		echo "mkisofs cmd does not exist, please install cdrtools"
-	fi
+        if [ ! -f "${destpath}${isoname}.iso" ]; then
+            echo "writing ${isoname}.iso to ${destpath} from ${srcpath}"
+            mkisofs -V "${isoname}" -iso-level 3 -r -o "${destpath}${isoname}.iso" "${srcpath}"
+        else
+            echo "${destpath}${isoname}.iso already exists"
+        fi
+    else
+        echo "mkisofs cmd does not exist, please install cdrtools"
+    fi
 }
 
 #   ---------------------------
@@ -166,11 +166,11 @@ function ffs { /usr/bin/find . -name "$@"'*'; } # ffs:      Find file whose name
 # shellcheck disable=SC2145
 function ffe { /usr/bin/find . -name '*'"$@"; } # ffe:      Find file whose name ends with a given string
 function bigfind {
-	if [[ $# -lt 1 ]]; then
-		echo_warn "Usage: bigfind DIRECTORY"
-		return
-	fi
-	du -a "$1" | sort -n -r | head -n 10
+    if [[ $# -lt 1 ]]; then
+        echo_warn "Usage: bigfind DIRECTORY"
+        return
+    fi
+    du -a "$1" | sort -n -r | head -n 10
 }
 
 #   ---------------------------
@@ -196,47 +196,47 @@ function my_ps { ps "$@" -u "$USER" -o pid,%cpu,%mem,start,time,bsdtime,command;
 #   ips:  display all ip addresses for this host
 #   -------------------------------------------------------------------
 function ips {
-	if _omb_util_command_exists ifconfig; then
-		ifconfig | awk '/inet /{ print $2 }'
-	elif _omb_util_command_exists ip; then
-		ip addr | grep -oP 'inet \K[\d.]+'
-	else
-		echo "You don't have ifconfig or ip command installed!"
-	fi
+    if _omb_util_command_exists ifconfig; then
+        ifconfig | awk '/inet /{ print $2 }'
+    elif _omb_util_command_exists ip; then
+        ip addr | grep -oP 'inet \K[\d.]+'
+    else
+        echo "You don't have ifconfig or ip command installed!"
+    fi
 }
 
 #   down4me:  checks whether a website is down for you, or everybody
 #   -------------------------------------------------------------------
 function down4me {
-	curl -s "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g'
+    curl -s "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g'
 }
 
 #   myip:  displays your ip address, as seen by the Internet
 #   -------------------------------------------------------------------
 function myip {
-	res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
-	echo -e "$res"
+    res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
+    echo -e "$res"
 }
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
 function ii {
-	echo -e "\\nYou are logged on ${_omb_term_brown}$HOST"
-	echo -e "\\nAdditionnal information:$NC "
-	uname -a
-	echo -e "\\n${_omb_term_brown}Users logged on:$NC "
-	w -h
-	echo -e "\\n${_omb_term_brown}Current date :$NC "
-	date
-	echo -e "\\n${_omb_term_brown}Machine stats :$NC "
-	uptime
-	[[ "$OSTYPE" == darwin* ]] && echo -e "\\n${_omb_term_brown}Current network location :$NC "
-	scselect
-	echo -e "\\n${_omb_term_brown}Public facing IP Address :$NC "
-	myip
-	[[ "$OSTYPE" == darwin* ]] && echo -e "\\n${_omb_term_brown}DNS Configuration:$NC "
-	scutil --dns
-	echo
+    echo -e "\\nYou are logged on ${_omb_term_brown}$HOST"
+    echo -e "\\nAdditionnal information:$NC "
+    uname -a
+    echo -e "\\n${_omb_term_brown}Users logged on:$NC "
+    w -h
+    echo -e "\\n${_omb_term_brown}Current date :$NC "
+    date
+    echo -e "\\n${_omb_term_brown}Machine stats :$NC "
+    uptime
+    [[ "$OSTYPE" == darwin* ]] && echo -e "\\n${_omb_term_brown}Current network location :$NC "
+    scselect
+    echo -e "\\n${_omb_term_brown}Public facing IP Address :$NC "
+    myip
+    [[ "$OSTYPE" == darwin* ]] && echo -e "\\n${_omb_term_brown}DNS Configuration:$NC "
+    scutil --dns
+    echo
 }
 
 #   ---------------------------------------
@@ -246,43 +246,43 @@ function ii {
 #   batch_chmod: Batch chmod for all files & sub-directories in the current one
 #   -------------------------------------------------------------------
 function batch_chmod {
-	echo -ne "${_omb_term_bold_navy}Applying 0755 permission for all directories..."
-	(find . -type d -print0 | xargs -0 chmod 0755) &
-	spinner
-	echo -ne "${_omb_term_normal}"
+    echo -ne "${_omb_term_bold_navy}Applying 0755 permission for all directories..."
+    (find . -type d -print0 | xargs -0 chmod 0755) &
+    spinner
+    echo -ne "${_omb_term_normal}"
 
-	echo -ne "${_omb_term_bold_navy}Applying 0644 permission for all files..."
-	(find . -type f -print0 | xargs -0 chmod 0644) &
-	spinner
-	echo -ne "${_omb_term_normal}"
+    echo -ne "${_omb_term_bold_navy}Applying 0644 permission for all files..."
+    (find . -type f -print0 | xargs -0 chmod 0644) &
+    spinner
+    echo -ne "${_omb_term_normal}"
 }
 
 #   usage: disk usage per directory, in Mac OS X and Linux
 #   -------------------------------------------------------------------
 function usage {
-	if [ "$(uname)" = "Darwin" ]; then
-		if [ -n "$1" ]; then
-			du -hd 1 "$1"
-		else
-			du -hd 1
-		fi
-	elif [ "$(uname)" = "Linux" ]; then
-		if [ -n "$1" ]; then
-			du -h --max-depth=1 "$1"
-		else
-			du -h --max-depth=1
-		fi
-	fi
+    if [ "$(uname)" = "Darwin" ]; then
+        if [ -n "$1" ]; then
+            du -hd 1 "$1"
+        else
+            du -hd 1
+        fi
+    elif [ "$(uname)" = "Linux" ]; then
+        if [ -n "$1" ]; then
+            du -h --max-depth=1 "$1"
+        else
+            du -h --max-depth=1
+        fi
+    fi
 }
 
 #   pickfrom: picks random line from file
 #   -------------------------------------------------------------------
 function pickfrom {
-	local file=$1
-	[ -z "$file" ] && reference "$FUNCNAME" && return
-	length=$(wc -l < "$file")
-	n=$( ($RANDOM \* "$length" / 32768 + 1))
-	head -n "$n" "$file" | tail -1
+    local file=$1
+    [ -z "$file" ] && reference "$FUNCNAME" && return
+    length=$(wc -l <"$file")
+    n=$( ($RANDOM \* "$length" / 32768 + 1))
+    head -n "$n" "$file" | tail -1
 }
 
 #   passgen: generates random password from dictionary words
@@ -294,10 +294,10 @@ function pickfrom {
 # shellcheck disable=SC2034
 # shellcheck disable=SC2086
 function passgen {
-	local i pass length=${1:-4}
-	pass=$(echo $(for i in $(eval echo "{1..$length}"); do pickfrom /usr/share/dict/words; done))
-	echo "With spaces (easier to memorize): $pass"
-	echo "Without (use this as the password): $(echo $pass | tr -d ' ')"
+    local i pass length=${1:-4}
+    pass=$(echo $(for i in $(eval echo "{1..$length}"); do pickfrom /usr/share/dict/words; done))
+    echo "With spaces (easier to memorize): $pass"
+    echo "Without (use this as the password): $(echo $pass | tr -d ' ')"
 }
 
 #   ---------------------------------------

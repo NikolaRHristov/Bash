@@ -12,14 +12,14 @@ _omb_util_alias please='sudo'
 
 ## more intelligent acking for ubuntu users
 if _omb_util_binary_exists ack-grep; then
-	_omb_util_alias afind='ack-grep -il'
+    _omb_util_alias afind='ack-grep -il'
 else
-	_omb_util_alias afind='ack -il'
+    _omb_util_alias afind='ack -il'
 fi
 
 # only define LC_CTYPE if undefined
 if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
-	export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
+    export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
 fi
 
 # recognize comments

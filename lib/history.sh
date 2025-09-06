@@ -2,7 +2,7 @@
 
 ## Command history configuration
 if [ -z "$HISTFILE" ]; then
-	HISTFILE=$HOME/.bash_history
+    HISTFILE=$HOME/.bash_history
 fi
 
 # some moderate history controls taken from sensible.bash

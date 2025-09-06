@@ -5,121 +5,121 @@
 _omb_module_require lib:omb-deprecate
 
 function _omb_theme__construct_sgr {
-	out=
-	local reset=
-	while (($#)); do
-		local next=$1
-		shift
-		case $next in
-		reset) reset=0 ;;
-		bold) out=${out:+$out;}1 ;;
-		faint) out=${out:+$out;}2 ;;
-		italic) out=${out:+$out;}3 ;;
-		underline) out=${out:+$out;}4 ;;
-		negative) out=${out:+$out;}7 ;;
-		crossed) out=${out:+$out;}8 ;;
-		color)
-			local color=$1
-			shift
+    out=
+    local reset=
+    while (($#)); do
+        local next=$1
+        shift
+        case $next in
+        reset) reset=0 ;;
+        bold) out=${out:+$out;}1 ;;
+        faint) out=${out:+$out;}2 ;;
+        italic) out=${out:+$out;}3 ;;
+        underline) out=${out:+$out;}4 ;;
+        negative) out=${out:+$out;}7 ;;
+        crossed) out=${out:+$out;}8 ;;
+        color)
+            local color=$1
+            shift
 
-			local side=fg mode=normal
-			case $1 in
-			fg | bg)
-				side=$1
-				shift
-				;;
-			esac
-			case $1 in
-			normal | bright)
-				mode=$1
-				shift
-				;;
-			esac
+            local side=fg mode=normal
+            case $1 in
+            fg | bg)
+                side=$1
+                shift
+                ;;
+            esac
+            case $1 in
+            normal | bright)
+                mode=$1
+                shift
+                ;;
+            esac
 
-			local prefix=3
-			case $side:$mode in
-			fg:normal) prefix=3 ;;
-			bg:normal) prefix=4 ;;
-			fg:bright) prefix=9 ;;
-			bg:bright) prefix=10 ;;
-			esac
+            local prefix=3
+            case $side:$mode in
+            fg:normal) prefix=3 ;;
+            bg:normal) prefix=4 ;;
+            fg:bright) prefix=9 ;;
+            bg:bright) prefix=10 ;;
+            esac
 
-			case $color in
-			black) color=0 ;;
-			red) color=1 ;;
-			green) color=2 ;;
-			yellow) color=3 ;;
-			blue) color=4 ;;
-			magenta) color=5 ;;
-			cyan) color=6 ;;
-			white) color=7 ;;
-			rgb)
-				local r=$1 g=$2 b=$3
-				shift 3
-				if ((r == g && g == b)); then
-					# gray range above 232
-					color=$((232 + r / 11))
-				else
-					color="8;5;$(((r * 36 + b * 6 + g) / 51 + 16))"
-				fi
-				;;
-			*)
-				printf '%s\n' "_omb_theme_color: unknown color '$color'" >&2
-				continue
-				;;
-			esac
-			out=${out:+$out;}$prefix$color
-			;;
-		'')
-			out="${out:+$out;}$*"
-			;;
-		*)
-			printf '%s\n' "_omb_theme_color: unknown token '$next'" >&2
-			;;
-		esac
-	done
+            case $color in
+            black) color=0 ;;
+            red) color=1 ;;
+            green) color=2 ;;
+            yellow) color=3 ;;
+            blue) color=4 ;;
+            magenta) color=5 ;;
+            cyan) color=6 ;;
+            white) color=7 ;;
+            rgb)
+                local r=$1 g=$2 b=$3
+                shift 3
+                if ((r == g && g == b)); then
+                    # gray range above 232
+                    color=$((232 + r / 11))
+                else
+                    color="8;5;$(((r * 36 + b * 6 + g) / 51 + 16))"
+                fi
+                ;;
+            *)
+                printf '%s\n' "_omb_theme_color: unknown color '$color'" >&2
+                continue
+                ;;
+            esac
+            out=${out:+$out;}$prefix$color
+            ;;
+        '')
+            out="${out:+$out;}$*"
+            ;;
+        *)
+            printf '%s\n' "_omb_theme_color: unknown token '$next'" >&2
+            ;;
+        esac
+    done
 
-	if [[ $reset ]]; then
-		out=$reset${out:+;$out}
-	fi
+    if [[ $reset ]]; then
+        out=$reset${out:+;$out}
+    fi
 }
 
 function _omb_theme_color_prompt {
-	local out
-	_omb_theme__construct_sgr "$@"
-	echo "\[\e[${out}m\]"
+    local out
+    _omb_theme__construct_sgr "$@"
+    echo "\[\e[${out}m\]"
 }
 
 function _omb_theme_color_echo {
-	local out
-	_omb_theme__construct_sgr "$@"
-	echo "\033[${out}m"
+    local out
+    _omb_theme__construct_sgr "$@"
+    echo "\033[${out}m"
 }
 
 function _omb_prompt_color_initialize {
-	_omb_prompt_normal='\[\e[0m\]'
-	_omb_prompt_reset_color='\[\e[39m\]'
+    _omb_prompt_normal='\[\e[0m\]'
+    _omb_prompt_reset_color='\[\e[39m\]'
 
-	# used by themes/gallifrey
-	_omb_prompt_bold='\[\e[1m\]'
+    # used by themes/gallifrey
+    _omb_prompt_bold='\[\e[1m\]'
 
-	local -a normal_colors=(black brown green olive navy purple teal silver)
-	local -a bright_colors=(gray red lime yellow blue magenta cyan white)
+    local -a normal_colors=(black brown green olive navy purple teal silver)
+    local -a bright_colors=(gray red lime yellow blue magenta cyan white)
 
-	local bright_fg_prefix=9 bright_bg_prefix=10
-	((_omb_term_colors >= 16)) || bright_fg_prefix=3 bright_bg_prefix=4
+    local bright_fg_prefix=9 bright_bg_prefix=10
+    ((_omb_term_colors >= 16)) || bright_fg_prefix=3 bright_bg_prefix=4
 
-	local index
-	for ((index = 0; index < 8; index++)); do
-		printf -v "_omb_prompt_${normal_colors[index]}" %s '\[\e[0;3'"$index"'m\]'
-		printf -v "_omb_prompt_bold_${normal_colors[index]}" %s '\[\e[3'"$index"';1m\]'
-		printf -v "_omb_prompt_underline_${normal_colors[index]}" %s '\[\e[3'"$index"';4m\]'
-		printf -v "_omb_prompt_background_${normal_colors[index]}" %s '\[\e[4'"$index"'m\]'
-		printf -v "_omb_prompt_${bright_colors[index]}" %s '\[\e[0;'"$bright_fg_prefix$index"'m\]'
-		printf -v "_omb_prompt_bold_${bright_colors[index]}" %s '\[\e['"$bright_fg_prefix$index"';1m\]'
-		printf -v "_omb_prompt_underline_${bright_colors[index]}" %s '\[\e['"$bright_fg_prefix$index"';4m\]'
-		printf -v "_omb_prompt_background_${bright_colors[index]}" %s '\[\e['"$bright_bg_prefix$index"'m\]'
-	done
+    local index
+    for ((index = 0; index < 8; index++)); do
+        printf -v "_omb_prompt_${normal_colors[index]}" %s '\[\e[0;3'"$index"'m\]'
+        printf -v "_omb_prompt_bold_${normal_colors[index]}" %s '\[\e[3'"$index"';1m\]'
+        printf -v "_omb_prompt_underline_${normal_colors[index]}" %s '\[\e[3'"$index"';4m\]'
+        printf -v "_omb_prompt_background_${normal_colors[index]}" %s '\[\e[4'"$index"'m\]'
+        printf -v "_omb_prompt_${bright_colors[index]}" %s '\[\e[0;'"$bright_fg_prefix$index"'m\]'
+        printf -v "_omb_prompt_bold_${bright_colors[index]}" %s '\[\e['"$bright_fg_prefix$index"';1m\]'
+        printf -v "_omb_prompt_underline_${bright_colors[index]}" %s '\[\e['"$bright_fg_prefix$index"';4m\]'
+        printf -v "_omb_prompt_background_${bright_colors[index]}" %s '\[\e['"$bright_bg_prefix$index"'m\]'
+    done
 }
 _omb_prompt_color_initialize
 

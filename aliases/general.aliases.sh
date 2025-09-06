@@ -24,49 +24,49 @@
 # Preferred 'cp' implementation.  Determines the use of the option `-v' on the
 # first call Ref. https://github.com/ohmybash/oh-my-bash/issues/351
 function _omb_util_alias_select_cp {
-	if (
-		tmp=$(_omb_util_mktemp)
-		trap 'rm -f "$tmp"{,.2}' EXIT
-		command cp -v "$tmp" "$tmp.2" &>/dev/null
-	); then
-		_omb_command='cp -iv'
-	else
-		_omb_command='cp -i'
-	fi
+    if (
+        tmp=$(_omb_util_mktemp)
+        trap 'rm -f "$tmp"{,.2}' EXIT
+        command cp -v "$tmp" "$tmp.2" &>/dev/null
+    ); then
+        _omb_command='cp -iv'
+    else
+        _omb_command='cp -i'
+    fi
 }
 _omb_util_alias_delayed cp force
 
 # Preferred 'mv' implementation
 function _omb_util_alias_select_mv {
-	if (
-		tmp=$(_omb_util_mktemp)
-		trap 'rm -f "$tmp.2"' EXIT
-		command mv -v "$tmp" "$tmp.2" &>/dev/null
-	); then
-		_omb_command='mv -iv'
-	else
-		_omb_command='mv -i'
-	fi
+    if (
+        tmp=$(_omb_util_mktemp)
+        trap 'rm -f "$tmp.2"' EXIT
+        command mv -v "$tmp" "$tmp.2" &>/dev/null
+    ); then
+        _omb_command='mv -iv'
+    else
+        _omb_command='mv -i'
+    fi
 }
 _omb_util_alias_delayed mv force
 
 # Preferred 'mkdir' implementation
 function _omb_util_alias_select_mkdir {
-	if command mkdir -pv . &>/dev/null; then
-		_omb_command='mkdir -pv'
-	else
-		_omb_command='mkdir -p'
-	fi
+    if command mkdir -pv . &>/dev/null; then
+        _omb_command='mkdir -pv'
+    else
+        _omb_command='mkdir -p'
+    fi
 }
 _omb_util_alias_delayed mkdir force
 
 # Preferred 'nano' implementation
 function _omb_util_alias_select_nano {
-	if LANG=C command nano --help 2>/dev/null | grep -q '^[[:space:]]*[-]W'; then
-		_omb_command='nano -W'
-	else
-		_omb_command='nano'
-	fi
+    if LANG=C command nano --help 2>/dev/null | grep -q '^[[:space:]]*[-]W'; then
+        _omb_command='nano -W'
+    else
+        _omb_command='nano'
+    fi
 }
 _omb_util_alias_delayed nano force
 

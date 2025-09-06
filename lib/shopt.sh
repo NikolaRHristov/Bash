@@ -24,9 +24,9 @@ shopt -s globstar 2>/dev/null
 # Case-sensitive globbing (used in pathname expansion) and matching
 # (used in case, [[]], word expansions and command completions)
 if [[ ${OMB_CASE_SENSITIVE:-${CASE_SENSITIVE:-}} == true ]]; then
-	shopt -u nocaseglob
+    shopt -u nocaseglob
 else
-	shopt -s nocaseglob
+    shopt -s nocaseglob
 fi
 
 ## SMARTER TAB-COMPLETION (Readline bindings) ##
@@ -37,22 +37,22 @@ fi
 #
 # Note: CASE_SENSITIVE is the compatibility name
 if [[ ${OMB_CASE_SENSITIVE:-${CASE_SENSITIVE:-}} == true ]]; then
-	bind "set completion-ignore-case off"
+    bind "set completion-ignore-case off"
 else
-	# By default, case sensitivity is disabled.
-	bind "set completion-ignore-case on"
+    # By default, case sensitivity is disabled.
+    bind "set completion-ignore-case on"
 
-	# Treat hyphens and underscores as equivalent
-	# CASE_SENSITIVE must be off
-	if [[ ! ${OMB_HYPHEN_SENSITIVE-} && ${HYPHEN_INSENSITIVE} ]]; then
-		case $HYPHEN_INSENSITIVE in
-		true) OMB_HYPHEN_SENSITIVE=true ;;
-		false) OMB_HYPHEN_SENSITIVE=false ;;
-		esac
-	fi
-	if [[ ${OMB_HYPHEN_SENSITIVE-} == false ]]; then
-		bind "set completion-map-case on"
-	fi
+    # Treat hyphens and underscores as equivalent
+    # CASE_SENSITIVE must be off
+    if [[ ! ${OMB_HYPHEN_SENSITIVE-} && ${HYPHEN_INSENSITIVE} ]]; then
+        case $HYPHEN_INSENSITIVE in
+        true) OMB_HYPHEN_SENSITIVE=true ;;
+        false) OMB_HYPHEN_SENSITIVE=false ;;
+        esac
+    fi
+    if [[ ${OMB_HYPHEN_SENSITIVE-} == false ]]; then
+        bind "set completion-map-case on"
+    fi
 fi
 
 # Display matches for ambiguous patterns at first tab press

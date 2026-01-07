@@ -16,7 +16,7 @@ jobs:
         # ubuntu-20.04 available: https://github.com/actions/virtual-environments/issues/1816
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
-      - uses: actions/setup-node@v4.4.0
+      - uses: actions/setup-node@v6.1.0
         with:
           fetch-depth: 1
           submodules: false

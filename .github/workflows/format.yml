@@ -16,7 +16,7 @@ jobs:
         with:
           format: "json"
       - name: Check out code.
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v6.1.0
       - uses: 'actions/setup-go@v4'
         with:
           go-version: '1.20'
